@@ -1,16 +1,19 @@
 const fs = require('fs');
 const path = require('path');
-const http = require('http');
+const https = require('https');
 const { parse } = require('url');
 
-const example = require('./example').default;
+const options = {
+  key: fs.readFileSync('localhost-privkey.pem'),
+  cert: fs.readFileSync('localhost-cert.pem')
+};
 
-http.createServer((req, res) => {
+https.createServer(options, (req, res) => {
   const { pathname } = parse(req.url);
   res.setHeader('Content-Type', 'text/plain');
   if (pathname === '/') {
     res.end('Index');
-  } else if (pathname === '/Web') {
+  } else if (pathname === '/web') {
     res.end('Web');
   } else if (pathname === '/json') {
     res.setHeader('Content-Type', 'application/json');
@@ -23,8 +26,5 @@ http.createServer((req, res) => {
   } else if (pathname === '/html') {
     res.setHeader('Content-Type', 'text/html');
     res.end('<html><body>Hello<div id="root></div></body></html>');
-  } else if (pathname === '/ssr') {
-    res.setHeader('Content-Type', 'text/html');
-    res.end(example);
   }
 }).listen(3000);
