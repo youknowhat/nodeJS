@@ -1,27 +1,28 @@
 {
-  "name": "nodeJS",
+  "name": "next",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
-  "dependencies": {
-    "express": "^4.17.1",
-    "http-proxy-middleware": "^0.20.0",
-    "nodemon": "^2.0.2"
-  },
-  "devDependencies": {},
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/youknowhat/nodeJS.git"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
   },
   "keywords": [],
   "author": "junghyun.park <junghyun.de@gmail.com>",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/youknowhat/nodeJS/issues"
+  "dependencies": {
+    "@next/mdx": "^9.2.1",
+    "@zeit/next-mdx": "^1.2.0",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "^9.2.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-jss": "^10.0.4"
   },
-  "homepage": "https://github.com/youknowhat/nodeJS#readme"
+  "devDependencies": {
+    "@types/node": "^13.7.1",
+    "@types/react": "^16.9.19",
+    "typescript": "^3.7.5"
+  }
 }
