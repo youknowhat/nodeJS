@@ -27,4 +27,6 @@ https.createServer(options, (req, res) => {
     res.setHeader('Content-Type', 'text/html');
     res.end('<html><body>Hello<div id="root></div></body></html>');
   }
-}).listen(3000);
+}).listen(3000, function() {
+  console.log('Server is running at localhost')
+});
